@@ -14,8 +14,10 @@ key in your data store.
 
 ## Installation and Usage
 
-Build the plugin or download a [release][releases]. Go plugins are only supported on
-Linux at the current time. They must be compiled with the same Go version as the Beat.
+Build the plugin. Go plugins are only supported on Linux at the current time. They must be
+compiled with the same Go version as the Beat it will be used with. Likewise this plugin
+must be compiled against the same Beat codebase version as the Beat it will be used
+with.
 
 ```
 go build -buildmode=plugin
