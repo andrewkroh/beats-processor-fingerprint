@@ -23,4 +23,5 @@ deploy:
   file:
   - processor-fingerprint-linux-amd64.so
   on:
+    tags: true
     repo: andrewkroh/beats-processor-fingerprint
