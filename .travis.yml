@@ -1,0 +1,16 @@
+---
+sudo: false
+language: go
+go:
+- 1.8.4
+go_import_path: github.com/andrewkroh/beats-processor-fingerprint
+
+install:
+- go get -d -t ./...
+
+script:
+- >
+  find . -name '*.go' | grep -v vendor | xargs gofmt -s -l | read &&
+  echo "Code differs from gofmt's style. Run 'gofmt -s -w .'" 1>&2 && exit 1 || true
+- go test -v $(go list ./... | grep -v /vendor/)
+- make
