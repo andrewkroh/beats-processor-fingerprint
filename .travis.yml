@@ -13,14 +13,14 @@ script:
   find . -name '*.go' | grep -v vendor | xargs gofmt -s -l | read &&
   echo "Code differs from gofmt's style. Run 'gofmt -s -w .'" 1>&2 && exit 1 || true
 - go test -v $(go list ./... | grep -v /vendor/)
-- mkdir -p build
-- go build -buildmode=plugin -o build/processor-fingerprint-linux-amd64.so
+- make
 
 deploy:
   provider: releases
   api_key:
     secure: WTx9BpepjdLVRpiuvwA93dq/v3eIu9xC1x4OZbfxoRhO0vucqBsw5IDGSZTe1P7CBxXyktVqkiyynEBbscZ0fodIpLkWddUoCXkrbDWlzVUTymRmB0bQOkrzjZMQtou/Ppk8ir0a5UF1q5UiOq9sNTfHXvyBw5mCRWBr/F74z8Ep4Yc5hQ506bc144uHbvRfx658q2yS8n6Ha+j8fGd496kt3kLxHg7DfHI5C+VFn01va4sAPalXPjLDfKJ43yXRfjN+XQM3PpWlHuvRKzDdkytK0uFIW4Dw+s0Bc7+WMvLYnEHPKdTlC9CRX2HnoosS6D007hoknKAeXQaYPqSIPB/E37N3Mm0WZnim4RKhX6EjHKyr4OB9lcBbO0Bd36tLtrPFDdSor1+3ta/6eDVXv0esMgKGY5rtf0N/mQMzFh00BawO5s7m4PWTXWAefsLLQlsrR013E3iXwnu9Li9JUulrOjrDU2mKulNZDrWOGoLbVHGAcUrZmdrThjv+ja4qJXntdFaMcT2ZZHT1j8Cdqqxy5sGtQJh9enbg31p5uzxtZzn2i4XVO7/dwreYUQT2vdeYuhArI6gqjNsdsP30L5pUv9WC25YjYhi2XH8mPBZmGcpdgGjWF27Kgzbtvg9PqkBrHavpW0rRjRtUapnHxc40R0SfBPimLHIa881n6eE=
+  skip_cleanup: true
   file:
-  - build/processor-fingerprint-linux-amd64.so
+  - processor-fingerprint-linux-amd64.so
   on:
     repo: andrewkroh/beats-processor-fingerprint
