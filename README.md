@@ -1,3 +1,5 @@
+**NOTE**: This processor is now part of [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/fingerprint.html).
+
 # beats-processor-fingerprint plugin
 
 [![Build Status](http://img.shields.io/travis/andrewkroh/beats-processor-fingerprint.svg?style=flat-square)][travis]
